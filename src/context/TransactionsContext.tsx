@@ -1,4 +1,4 @@
-import { createContext, useState, FC, useEffect } from "react";
+import React, { createContext, useState, FC, useEffect } from "react";
 
 import { Transaction } from "../types/transactions";
 import TransactionsContextType from "../types/contexts";
@@ -85,8 +85,14 @@ const sortTransactions = (arr: Transaction[]): Transaction[] => {
   });
 };
 
+type MonthlyTransactionData = {
+  income: number;
+  expense: number;
+  monthYear: string;
+};
+
 const getMonthlyTransactionsData = (transactions: Transaction[]) => {
-  const monthlyData = {};
+  const monthlyData: MonthlyTransactionData[] = [];
 
   transactions.forEach((transaction) => {
     const date = new Date(transaction.date);
@@ -94,24 +100,30 @@ const getMonthlyTransactionsData = (transactions: Transaction[]) => {
       month: "short",
     }).format(date)} ${date.getFullYear()}`;
 
-    if (!monthlyData[monthYear]) {
-      monthlyData[monthYear] = {
+    // Find the existing monthlyData entry or create a new one
+    let entry = monthlyData.find((entry) => entry.monthYear === monthYear);
+
+    if (!entry) {
+      entry = {
         income: 0,
         expense: 0,
         monthYear,
       };
+
+      monthlyData.push(entry);
     }
 
-    if (transaction.type === "income") {
-      monthlyData[monthYear].income += parseFloat(transaction.amount);
-    } else if (transaction.type === "expense") {
-      monthlyData[monthYear].expense += Math.abs(
-        parseFloat(transaction.amount)
-      );
+    switch (transaction.type) {
+      case "income":
+        entry.income += parseFloat(transaction.amount);
+        break;
+      case "expense":
+        entry.expense += Math.abs(parseFloat(transaction.amount));
+        break;
     }
   });
 
-  const sortedMonthlyData = Object.values(monthlyData).sort((a, b) => {
+  const sortedMonthlyData = monthlyData.sort((a, b) => {
     const dateA = new Date(a.monthYear);
     const dateB = new Date(b.monthYear);
 
@@ -122,7 +134,7 @@ const getMonthlyTransactionsData = (transactions: Transaction[]) => {
     return dateA.getMonth() - dateB.getMonth();
   });
 
-  return sortedMonthlyData as monthlyTransactionData[];
+  return sortedMonthlyData;
 };
 
 const calculateTotalsThisMonth = (

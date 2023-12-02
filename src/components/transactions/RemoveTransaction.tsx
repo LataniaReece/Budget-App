@@ -92,7 +92,7 @@ const RemoveTransaction: React.FC<RemoveTransactionProps> = ({
             onClick={handleRemove}
             sx={styles.submitButton}
           >
-            Yes, I'm sure
+            Yes, I&apos;m sure
           </Button>
         </Box>
       </Box>

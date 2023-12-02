@@ -1,3 +1,4 @@
+import React from "react";
 import { createContext, useState, FC, useEffect } from "react";
 import { User } from "../types/account";
 import { AccountContextType } from "../types/contexts";

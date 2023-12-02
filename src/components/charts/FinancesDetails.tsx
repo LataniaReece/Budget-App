@@ -52,7 +52,7 @@ const FinancesDetails = () => {
             {moneyFormatter.format(totalIncomeThisMonth)}
           </Typography>
           <Typography sx={{ fontWeight: "bold" }}>
-            This Month's Income
+            This Month&apos;s Income
           </Typography>
         </Box>
         <Box sx={{ textAlign: "center" }}>
@@ -66,7 +66,7 @@ const FinancesDetails = () => {
             {`-${moneyFormatter.format(totalExpensesThisMonth)}`}
           </Typography>
           <Typography sx={{ fontWeight: "bold" }}>
-            This Month's Expenses
+            This Month&apos;s Expenses
           </Typography>
         </Box>
       </Box>
