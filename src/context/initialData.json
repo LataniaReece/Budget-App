@@ -1,0 +1,195 @@
+[
+  {
+    "title": "Grocery Shopping",
+    "type": "expense",
+    "category": "Food",
+    "amount": "-120.45",
+    "date": "2023-11-10T10:15:30.000Z",
+    "id": "a1b2c3d4-e5f6-7890-1234-5678abcd1234"
+  },
+  {
+    "title": "Concert Tickets",
+    "type": "expense",
+    "category": "Entertainment",
+    "amount": "-200.00",
+    "date": "2023-11-15T20:45:00.000Z",
+    "id": "e1f2g1h4-i5j6k7l8-9012-3456-7890efgh5678"
+  },
+  {
+    "title": "October Paycheck",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "3569.00",
+    "date": "2023-10-09T00:00:00.000Z",
+    "id": "ijklmne1-qrstuv-1234-5678-abcd9012efgh"
+  },
+  {
+    "title": "New Shoes",
+    "type": "expense",
+    "category": "Clothes",
+    "amount": "-89.99",
+    "date": "2023-11-20T12:30:00.000Z",
+    "id": "98765432-abcdef-1234-5678-ijklmnopqrst"
+  },
+  {
+    "title": "Refund from Electronics Store",
+    "type": "income",
+    "category": "Refund",
+    "amount": "50.00",
+    "date": "2023-11-25T08:20:15.000Z",
+    "id": "mnopqrst-uvwx-yzab-1234-5678cdef9012"
+  },
+  {
+    "title": "Dinner at Fusion Bistro",
+    "type": "expense",
+    "category": "Food",
+    "amount": "-75.60",
+    "date": "2023-11-28T19:00:00.000Z",
+    "id": "ijklmnop-qrstuv-1234-5678-abcd9012efgh"
+  },
+  {
+    "title": "Online Book Purchase",
+    "type": "expense",
+    "category": "Shopping",
+    "amount": "-28.99",
+    "date": "2023-11-03T14:45:00.000Z",
+    "id": "1a2b3c4d-5e6f-7890-1234-567890abcd12"
+  },
+  {
+    "title": "Movie Night Tickets",
+    "type": "expense",
+    "category": "Entertainment",
+    "amount": "-35.00",
+    "date": "2023-08-08T21:30:00.000Z",
+    "id": "2b3c4d5e-6f7g8h90-123i4j56k78l90m1"
+  },
+  {
+    "title": "Clothing Sale Haul",
+    "type": "expense",
+    "category": "Clothes",
+    "amount": "-120.75",
+    "date": "2023-10-14T11:00:00.000Z",
+    "id": "3c4d5e6f-7g8h90i1-2345j6k78l90m12n"
+  },
+  {
+    "title": "Freelance Gig Payment",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "1500.00",
+    "date": "2023-10-18T16:20:30.000Z",
+    "id": "4d5e6f7g-8h90i12j-3456k78l90m12n34o"
+  },
+  {
+    "title": "Lunch at Sushi Bar",
+    "type": "expense",
+    "category": "Food",
+    "amount": "-22.50",
+    "date": "2023-08-22T12:15:00.000Z",
+    "id": "5e6f7g8h-90i12j34-5678k78l90m12n34o56"
+  },
+  {
+    "title": "Tech Store Purchase",
+    "type": "expense",
+    "category": "Shopping",
+    "amount": "-180.00",
+    "date": "2023-08-27T18:45:00.000Z",
+    "id": "6f7g8h90i-12j34k56-7890l90m12n34o56p"
+  },
+  {
+    "title": "Weekend Getaway Expenses",
+    "type": "expense",
+    "category": "Travel",
+    "amount": "-350.00",
+    "date": "2023-10-02T09:00:00.000Z",
+    "id": "7g8h90i1-2j34k56l78-901m12n34o56p78q"
+  },
+  {
+    "title": "Music Festival Tickets",
+    "type": "expense",
+    "category": "Entertainment",
+    "amount": "-120.00",
+    "date": "2023-10-07T15:30:00.000Z",
+    "id": "8h90i12j3-4k56l78m90-1234n34o56p78q90"
+  },
+  {
+    "title": "Fitness Class Membership",
+    "type": "expense",
+    "category": "Other",
+    "amount": "-75.99",
+    "date": "2023-10-12T17:45:00.000Z",
+    "id": "90i12j34k5-6l78m90n12-3456o56p78q90r"
+  },
+  {
+    "title": "Year-End Bonus",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "3000.00",
+    "date": "2023-09-18T11:20:00.000Z",
+    "id": "i12j34k56l-78m90n12o34-5678p78q90r12s"
+  },
+  {
+    "title": "Home Decor Shopping",
+    "type": "expense",
+    "category": "Shopping",
+    "amount": "-250.50",
+    "date": "2023-10-15T18:45:00.000Z",
+    "id": "34k56l78m9-0n12o34p56-7890q90r12s34t"
+  },
+  {
+    "title": "Dinner with Friends",
+    "type": "expense",
+    "category": "Food",
+    "amount": "-80.25",
+    "date": "2023-09-28T20:15:00.000Z",
+    "id": "78m90n12o34-5p678q90r12-3456s34t56u78"
+  },
+  {
+    "title": "August Paycheck",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "3569.00",
+    "date": "2023-08-15T12:00:00.000Z",
+    "id": "a1b2c3d4-e5f6-7890-1234-5678abcd5678"
+  },
+  {
+    "title": "September Paycheck",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "3569.00",
+    "date": "2023-09-15T12:00:00.000Z",
+    "id": "e1f2g3h4-i5j6k7l8-9012-3456-7890efgh5678"
+  },
+
+  {
+    "title": "November Paycheck",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "3569.00",
+    "date": "2023-11-15T12:00:00.000Z",
+    "id": "mnop01s2-uvwx-yzab-1234-5678cdef9012"
+  },
+  {
+    "title": "December Paycheck",
+    "type": "income",
+    "category": "Paycheck",
+    "amount": "3450.87",
+    "date": "2023-12-05T12:00:00.000Z",
+    "id": "qrstlv0x-yzab-cdef-1234-562890abhdef"
+  },
+  {
+    "title": "Gift Purchases",
+    "type": "expense",
+    "category": "Shopping",
+    "amount": "-150.00",
+    "date": "2023-12-10T15:30:00.000Z",
+    "id": "ijk3mfop-qr9tuv-1e34-5678-abcd9012xyzw"
+  },
+  {
+    "title": "Ski Trip Expenses",
+    "type": "expense",
+    "category": "Travel",
+    "amount": "-500.50",
+    "date": "2023-12-20T09:00:00.000Z",
+    "id": "7890ab4d-ef12-o456-ijkl-mnopqrstuvwx"
+  }
+]
