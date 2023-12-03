@@ -14,9 +14,3 @@ export type Transaction = {
   amount: string;
   date: Date;
 };
-
-export type monthlyTransactionData = {
-  income: number;
-  expense: number;
-  monthYear: string;
-};

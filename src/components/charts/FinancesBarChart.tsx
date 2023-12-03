@@ -11,11 +11,12 @@ import {
   Tooltip,
 } from "chart.js";
 import { useTransactionsContext } from "../../context/contextUtils";
+import { Transaction } from "../../types/transactions";
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const FinancesBarChart = () => {
-  const { monthlyTransactionsData } = useTransactionsContext();
+  const { transactions } = useTransactionsContext();
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -27,12 +28,14 @@ const FinancesBarChart = () => {
       minimumFractionDigits: 0,
     }).format(value);
 
+  const sortedMonthlyData = getMonthlyTransactionsData(transactions);
+
   const data = {
-    labels: monthlyTransactionsData.map((entry) => entry.monthYear),
+    labels: sortedMonthlyData.map((entry) => entry.monthYear).sort(), // explicitly sort the labels
     datasets: [
       {
         label: "Income",
-        data: monthlyTransactionsData.map((entry) => entry.income),
+        data: sortedMonthlyData.map((entry) => entry.income),
         backgroundColor: "#3F88C5",
         borderColor: "#3F88C5",
         borderWidth: 1,
@@ -40,7 +43,7 @@ const FinancesBarChart = () => {
       },
       {
         label: "Expense",
-        data: monthlyTransactionsData.map((entry) => entry.expense),
+        data: sortedMonthlyData.map((entry) => entry.expense),
         backgroundColor: "#F5F6F9",
         borderColor: "#F5F6F9",
         borderWidth: 1,
@@ -55,7 +58,7 @@ const FinancesBarChart = () => {
     scales: {
       x: {
         type: "category",
-        labels: monthlyTransactionsData.map((entry) => entry.monthYear),
+        labels: sortedMonthlyData.map((entry) => entry.monthYear),
         grid: {
           display: false,
         },
@@ -105,3 +108,56 @@ const FinancesBarChart = () => {
 };
 
 export default FinancesBarChart;
+
+type MonthlyTransactionData = {
+  income: number;
+  expense: number;
+  monthYear: string;
+};
+
+// helper function
+const getMonthlyTransactionsData = (transactions: Transaction[]) => {
+  const monthlyData: MonthlyTransactionData[] = [];
+
+  transactions.forEach((transaction) => {
+    const date = new Date(transaction.date);
+    const monthYear = `${new Intl.DateTimeFormat("en-US", {
+      month: "short",
+    }).format(date)} ${date.getFullYear()}`;
+
+    // Find the existing monthlyData entry or create a new one
+    let entry = monthlyData.find((entry) => entry.monthYear === monthYear);
+
+    if (!entry) {
+      entry = {
+        income: 0,
+        expense: 0,
+        monthYear,
+      };
+
+      monthlyData.push(entry);
+    }
+
+    switch (transaction.type) {
+      case "income":
+        entry.income += parseFloat(transaction.amount);
+        break;
+      case "expense":
+        entry.expense += Math.abs(parseFloat(transaction.amount));
+        break;
+    }
+  });
+
+  const sortedMonthlyData = monthlyData.sort((a, b) => {
+    const dateA = new Date(a.monthYear);
+    const dateB = new Date(b.monthYear);
+
+    if (dateA.getFullYear() !== dateB.getFullYear()) {
+      return dateA.getFullYear() - dateB.getFullYear();
+    }
+
+    return dateA.getMonth() - dateB.getMonth();
+  });
+
+  return sortedMonthlyData;
+};

@@ -27,8 +27,6 @@ export const TransactionsContextProvider: FC<
     JSON.parse(localStorage.getItem("budget") || "3000")
   );
 
-  const monthlyTransactionsData = getMonthlyTransactionsData(transactions);
-
   const { totalExpensesThisMonth, totalIncomeThisMonth } =
     calculateTotalsThisMonth(transactions);
   const totalsPerCategory = calculateTotalPerCategoryThisMonth(transactions);
@@ -57,7 +55,6 @@ export const TransactionsContextProvider: FC<
   const contextValue: TransactionsContextType = {
     transactions,
     setTransactions,
-    monthlyTransactionsData,
     addTransaction,
     removeTransaction,
     totalExpensesThisMonth,
@@ -83,58 +80,6 @@ const sortTransactions = (arr: Transaction[]): Transaction[] => {
 
     return dateB - dateA;
   });
-};
-
-type MonthlyTransactionData = {
-  income: number;
-  expense: number;
-  monthYear: string;
-};
-
-const getMonthlyTransactionsData = (transactions: Transaction[]) => {
-  const monthlyData: MonthlyTransactionData[] = [];
-
-  transactions.forEach((transaction) => {
-    const date = new Date(transaction.date);
-    const monthYear = `${new Intl.DateTimeFormat("en-US", {
-      month: "short",
-    }).format(date)} ${date.getFullYear()}`;
-
-    // Find the existing monthlyData entry or create a new one
-    let entry = monthlyData.find((entry) => entry.monthYear === monthYear);
-
-    if (!entry) {
-      entry = {
-        income: 0,
-        expense: 0,
-        monthYear,
-      };
-
-      monthlyData.push(entry);
-    }
-
-    switch (transaction.type) {
-      case "income":
-        entry.income += parseFloat(transaction.amount);
-        break;
-      case "expense":
-        entry.expense += Math.abs(parseFloat(transaction.amount));
-        break;
-    }
-  });
-
-  const sortedMonthlyData = monthlyData.sort((a, b) => {
-    const dateA = new Date(a.monthYear);
-    const dateB = new Date(b.monthYear);
-
-    if (dateA.getFullYear() !== dateB.getFullYear()) {
-      return dateA.getFullYear() - dateB.getFullYear();
-    }
-
-    return dateA.getMonth() - dateB.getMonth();
-  });
-
-  return sortedMonthlyData;
 };
 
 const calculateTotalsThisMonth = (

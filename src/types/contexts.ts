@@ -1,5 +1,5 @@
 import { User } from "./account";
-import { Transaction, monthlyTransactionData } from "./transactions";
+import { Transaction } from "./transactions";
 
 export interface AccountContextType {
   user: User | null;
@@ -9,7 +9,6 @@ export interface AccountContextType {
 export default interface TransactionsContextType {
   transactions: Transaction[];
   setTransactions: React.Dispatch<React.SetStateAction<Transaction[]>>;
-  monthlyTransactionsData: monthlyTransactionData[];
   addTransaction: (transaction: Transaction) => void;
   removeTransaction: (id: string) => void;
   totalExpensesThisMonth: number;
