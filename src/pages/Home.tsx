@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 import Header from "../components/Header";

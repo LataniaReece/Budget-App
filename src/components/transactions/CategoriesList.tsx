@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 
 import { AppPaperHeader } from "../AppPaperHeader";
@@ -41,7 +40,17 @@ const CategoriesList = () => {
           {Object.entries(totalsPerCategory).map(([key, value]) => (
             <Grid item key={key} xs={6} sm={3} lg={2}>
               <Paper sx={styles.categoryItemPaper}>
-                {getCategoryLabel(key)}
+                {getCategoryLabel(
+                  key as
+                    | "Shopping"
+                    | "Paycheck"
+                    | "Clothes"
+                    | "Food"
+                    | "Entertainment"
+                    | "Refund"
+                    | "Travel"
+                    | "Other"
+                )}
                 <Typography sx={styles.categoryName}>{key}</Typography>
                 <Typography sx={styles.categoryAmount}>
                   {moneyFormatter.format(value)}

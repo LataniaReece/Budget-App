@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Chart, ArcElement } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { Box, IconButton, Typography, Tooltip } from "@mui/material";

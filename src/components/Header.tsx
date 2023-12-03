@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import WalletIcon from "@mui/icons-material/Wallet";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";

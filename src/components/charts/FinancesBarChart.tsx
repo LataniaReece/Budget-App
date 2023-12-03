@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { Bar } from "react-chartjs-2";
 import {
@@ -20,7 +20,7 @@ const FinancesBarChart = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const valueFormatter = (value) =>
+  const valueFormatter = (value: any) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -49,7 +49,6 @@ const FinancesBarChart = () => {
     ],
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const options: any = {
     maintainAspectRatio: false,
     responsive: true,
@@ -74,7 +73,7 @@ const FinancesBarChart = () => {
           text: "Dollars($)",
         },
         ticks: {
-          callback: (value) => valueFormatter(value),
+          callback: (value: any) => valueFormatter(value),
         },
       },
     },
@@ -90,7 +89,7 @@ const FinancesBarChart = () => {
       },
       tooltip: {
         callbacks: {
-          label: (yDatapoint) => {
+          label: (yDatapoint: any) => {
             return valueFormatter(yDatapoint.raw);
           },
         },
