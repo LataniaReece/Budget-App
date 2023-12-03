@@ -149,14 +149,17 @@ const getMonthlyTransactionsData = (transactions: Transaction[]) => {
   });
 
   const sortedMonthlyData = monthlyData.sort((a, b) => {
-    const dateA = new Date(a.monthYear);
-    const dateB = new Date(b.monthYear);
+    const format = (entry: MonthlyTransactionData) => {
+      const [month, year] = entry.monthYear.split(" ");
+      const monthNumber =
+        new Date(Date.parse(`${month} 1, 2000`)).getMonth() + 1;
+      return `${year}-${monthNumber.toString().padStart(2, "0")}`;
+    };
 
-    if (dateA.getFullYear() !== dateB.getFullYear()) {
-      return dateA.getFullYear() - dateB.getFullYear();
-    }
+    const formattedDateA = format(a);
+    const formattedDateB = format(b);
 
-    return dateA.getMonth() - dateB.getMonth();
+    return formattedDateA.localeCompare(formattedDateB);
   });
 
   return sortedMonthlyData;
