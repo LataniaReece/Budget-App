@@ -82,7 +82,7 @@ const MobileTransactionTable: FC = () => {
           <Button
             variant="contained"
             sx={styles.addButton}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenAddTransaction(true)}
           >
             <AddIcon />
             Add Transaction
