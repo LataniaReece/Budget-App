@@ -31,7 +31,7 @@ const styles: StylesObject = {
   },
   closeIcon: { p: 0, color: "white" },
   content: {
-    px: 5,
+    px: { xs: 2, md: 5 },
     textAlign: "center",
   },
   buttonsContainer: {
@@ -39,6 +39,7 @@ const styles: StylesObject = {
     gap: 2,
     justifyContent: "center",
     mt: 2,
+    flexDirection: { xs: "column", sm: "row" },
   },
   submitButton: {
     backgroundColor: AppColors.darkGray,
@@ -80,7 +81,7 @@ const RemoveTransaction: React.FC<RemoveTransactionProps> = ({
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           Are you sure you want to remove:
         </Typography>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+        <Typography sx={{ fontWeight: "bold", fontSize: 25 }}>
           {transaction && transaction.title}
         </Typography>
         <Box sx={styles.buttonsContainer}>

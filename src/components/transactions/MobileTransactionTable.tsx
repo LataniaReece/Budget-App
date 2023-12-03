@@ -28,6 +28,8 @@ import {
 } from "./transactionHelperFunctions";
 import AddTransaction from "./AddTransaction";
 import { AppColors } from "../../theme";
+import RemoveTransaction from "./RemoveTransaction";
+import { Transaction } from "../../types/transactions";
 
 const styles: StylesObject = {
   heading: {
@@ -63,7 +65,10 @@ const styles: StylesObject = {
 };
 
 const MobileTransactionTable: FC = () => {
-  const [open, setOpen] = useState(false);
+  const [openAddTransaction, setOpenAddTransaction] = useState(false);
+  const [openRemoveTransaction, setOpenRemoveTransaction] = useState(false);
+  const [transactionToRemove, setTransactionToRemove] =
+    useState<Transaction | null>(null);
   const { transactions } = useTransactionsContext();
 
   const theme = useTheme();
@@ -126,7 +131,12 @@ const MobileTransactionTable: FC = () => {
                       <Typography style={{ fontWeight: "bold" }}>
                         Remove
                       </Typography>
-                      <IconButton>
+                      <IconButton
+                        onClick={() => {
+                          setTransactionToRemove(transaction);
+                          setOpenRemoveTransaction(true);
+                        }}
+                      >
                         <CloseIcon />
                       </IconButton>
                     </TableCell>
@@ -136,7 +146,15 @@ const MobileTransactionTable: FC = () => {
           </Table>
         </TableContainer>
       </AppPaper>
-      <AddTransaction open={open} setOpen={setOpen} />
+      <AddTransaction
+        open={openAddTransaction}
+        setOpen={setOpenAddTransaction}
+      />
+      <RemoveTransaction
+        open={openRemoveTransaction}
+        setOpen={setOpenRemoveTransaction}
+        transaction={transactionToRemove}
+      />
     </>
   );
 };
