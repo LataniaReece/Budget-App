@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import WalletIcon from "@mui/icons-material/Wallet";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { format } from "date-fns";
 
@@ -9,49 +8,41 @@ import { AppColors, AppMeasurements } from "../theme";
 const styles: StylesObject = {
   wrapper: {
     display: "flex",
-    alignItems: { xs: "flex-start", sm: "center" },
+    alignItems: "center",
     justifyContent: "space-between",
     mb: 3,
-    flexDirection: { xs: "column", sm: "row" },
+    flexDirection: "row",
+    backgroundColor: AppColors.headerColor,
+    px: { xs: 2, md: 10 },
+    py: 1.5,
   },
   logo: {
     fontWeight: "bold",
     fontSize: { xs: 20, sm: 25 },
-    display: "flex",
-    alignItems: "center",
-    gap: 1,
-    mb: { xs: 1, md: 0 },
-  },
-  icon: {
-    fontSize: { xs: 30, sm: 40, md: 42 },
-    color: AppColors.blueDark,
+    color: "white",
   },
   subLogo: {
-    display: { xs: "none", md: "block" },
-    pl: 6.7,
+    display: "block",
     fontStyle: "italic",
-    color: "gray",
+    color: "lightgray",
   },
   todayDate: {
-    display: "flex",
+    display: { xs: "none", sm: "flex" },
     alignItems: "center",
     gap: 1,
-    backgroundColor: "white",
-    py: 1,
-    px: 2,
+    border: `1px solid ${AppColors.bgColor}`,
+    color: AppColors.bgColor,
+    py: 0.85,
+    px: 1.8,
     borderRadius: AppMeasurements.radiusLarge,
     boxShadow: AppMeasurements.boxShadow,
-    fontWeight: "bold",
   },
 };
 const Header = () => {
   return (
     <Box sx={styles.wrapper}>
       <Box>
-        <Typography sx={styles.logo}>
-          <WalletIcon sx={styles.icon} />
-          Budget App
-        </Typography>
+        <Typography sx={styles.logo}>Budget App</Typography>
         <Typography sx={styles.subLogo}>Manage your budget</Typography>
       </Box>
       <Box>

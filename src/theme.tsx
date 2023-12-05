@@ -12,7 +12,8 @@ const breakpoints = {
 
 const AppColors = {
   bgColor: "#FBFBFB",
-  secondaryBgColor: "#F8FBFC",
+
+  headerColor: "#191C24",
 
   textColor: "#333333",
 

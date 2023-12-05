@@ -12,12 +12,14 @@ const Home: FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box component="main" sx={{ px: { xs: 2, md: 10 }, pt: 3, pb: 6 }}>
+    <>
       <Header />
-      <ChartsSection />
-      {isMobile ? <MobileTransactionTable /> : <DesktopTransactionTable />}
-      <CategoriesList />
-    </Box>
+      <Box component="main" sx={{ px: { xs: 2, md: 10 }, pb: 6 }}>
+        <ChartsSection />
+        {isMobile ? <MobileTransactionTable /> : <DesktopTransactionTable />}
+        <CategoriesList />
+      </Box>
+    </>
   );
 };
 
