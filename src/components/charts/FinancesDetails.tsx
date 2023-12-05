@@ -47,7 +47,10 @@ const FinancesDetails = () => {
               backgroundColor: AppColors.green,
             }}
           />
-          <Typography sx={{ fontSize: { xs: 18, md: 20 } }}>
+          <Typography
+            sx={{ fontSize: { xs: 18, md: 20 } }}
+            data-testid="thisMonthsIncome"
+          >
             {moneyFormatter.format(totalIncomeThisMonth)}
           </Typography>
           <Typography sx={{ fontWeight: "bold" }}>
@@ -61,7 +64,10 @@ const FinancesDetails = () => {
               backgroundColor: AppColors.red,
             }}
           />
-          <Typography sx={{ fontSize: { xs: 18, md: 20 } }}>
+          <Typography
+            sx={{ fontSize: { xs: 18, md: 20 } }}
+            data-testid="thisMonthsExpense"
+          >
             {`-${moneyFormatter.format(totalExpensesThisMonth)}`}
           </Typography>
           <Typography sx={{ fontWeight: "bold" }}>

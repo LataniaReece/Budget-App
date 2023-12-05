@@ -12,5 +12,5 @@ export type Transaction = {
     | "Travel"
     | "Other";
   amount: string;
-  date: Date;
+  date: Date | string;
 };

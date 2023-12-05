@@ -76,7 +76,7 @@ const MobileTransactionTable: FC = () => {
 
   return (
     <>
-      <AppPaper>
+      <AppPaper data-testid="mobileTransactionsTable">
         <Box sx={styles.heading}>
           <AppPaperHeader sx={{ mb: 2 }}>Transactions</AppPaperHeader>
           <Button
@@ -100,8 +100,11 @@ const MobileTransactionTable: FC = () => {
             </TableHead>
             <TableBody>
               {transactions &&
-                transactions.map((transaction) => (
-                  <TableRow key={transaction.id}>
+                transactions.map((transaction, index) => (
+                  <TableRow
+                    key={transaction.id}
+                    data-testid={`mobile-transaction-${index}`}
+                  >
                     <TableCell sx={styles.tableCell}>
                       <Typography style={{ fontWeight: "bold" }}>
                         Title

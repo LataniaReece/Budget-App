@@ -14,7 +14,6 @@ export default interface TransactionsContextType {
   totalExpensesThisMonth: number;
   totalIncomeThisMonth: number;
   totalTransactions: number;
-  totalsPerCategory: Record<string, number>;
   budget: string;
   setBudget: React.Dispatch<React.SetStateAction<string>>;
 }

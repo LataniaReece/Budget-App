@@ -99,6 +99,7 @@ const BudgetPieChart = () => {
             component="button"
             onClick={() => setOpenEditBudget(true)}
             sx={styles.noBudgetEditButton}
+            data-testid="setBudgetButton"
           >
             <Typography>Set Budget</Typography>
             <EditIcon sx={{ fontSize: 22 }} />
@@ -109,13 +110,20 @@ const BudgetPieChart = () => {
           <Box sx={styles.headingWrapper}>
             <Typography sx={styles.heading}>Budget</Typography>
             <Tooltip title="Edit Budget">
-              <IconButton onClick={() => setOpenEditBudget(true)}>
+              <IconButton
+                onClick={() => setOpenEditBudget(true)}
+                data-testid="editBudgetButton"
+              >
                 <EditIcon sx={{ fontSize: 22 }} />
               </IconButton>
             </Tooltip>
           </Box>
           <Box sx={styles.chartWrapper}>
-            <Doughnut data={data} options={options} />
+            <Doughnut
+              data={data}
+              options={options}
+              data-testid="budgetPieChart"
+            />
           </Box>
           <Box sx={styles.doughnutTitle}>
             <Typography
@@ -131,6 +139,7 @@ const BudgetPieChart = () => {
             <Box>
               <Typography
                 sx={{ fontSize: { xs: 20, md: 24 }, fontWeight: "bold" }}
+                data-testid="monthlyLimit"
               >
                 {moneyFormatter.format(Number(budget))}
               </Typography>
@@ -139,6 +148,7 @@ const BudgetPieChart = () => {
             <Box>
               <Typography
                 sx={{ fontSize: { xs: 20, md: 24 }, fontWeight: "bold" }}
+                data-testid="remaining"
               >
                 {moneyFormatter.format(Number(budget) - totalExpensesThisMonth)}
               </Typography>

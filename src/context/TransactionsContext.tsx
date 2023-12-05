@@ -29,7 +29,6 @@ export const TransactionsContextProvider: FC<
 
   const { totalExpensesThisMonth, totalIncomeThisMonth } =
     calculateTotalsThisMonth(transactions);
-  const totalsPerCategory = calculateTotalPerCategoryThisMonth(transactions);
   const totalTransactions = transactions.length;
 
   useEffect(() => {
@@ -60,7 +59,6 @@ export const TransactionsContextProvider: FC<
     totalExpensesThisMonth,
     totalIncomeThisMonth,
     totalTransactions,
-    totalsPerCategory,
     budget,
     setBudget,
   };
@@ -113,54 +111,6 @@ const calculateTotalsThisMonth = (
     );
 
   return result;
-};
-
-const calculateTotalPerCategoryThisMonth = (transactions: Transaction[]) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const categories: string[] = [
-    "Shopping",
-    "Clothes",
-    "Food",
-    "Entertainment",
-    "Travel",
-    "Other",
-  ];
-
-  // Get the current month and year
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
-
-  // Filter expense transactions for the current month
-  const expenseTransactionsThisMonth = transactions.filter(
-    (transaction) =>
-      transaction.type === "expense" &&
-      new Date(transaction.date).getMonth() === currentMonth &&
-      new Date(transaction.date).getFullYear() === currentYear
-  );
-
-  // Initialize total per category with all categories set to 0
-  const totalPerCategory: Record<string, number> = {};
-  categories.forEach((category: string) => {
-    totalPerCategory[category] = 0;
-  });
-
-  // Calculate total per category from expense transactions
-  expenseTransactionsThisMonth.forEach((transaction) => {
-    const { category, amount } = transaction;
-    const amountNumber = Math.abs(parseFloat(amount));
-
-    if (!isNaN(amountNumber)) {
-      totalPerCategory[category] += amountNumber;
-    }
-  });
-
-  // Convert the object into an array of key-value pairs and sort it
-  const sortedTotalPerCategory = Object.fromEntries(
-    Object.entries(totalPerCategory).sort((a, b) => b[1] - a[1])
-  );
-
-  return sortedTotalPerCategory;
 };
 
 const saveTransactionsToLocalStorage = (transactions: Transaction[]) => {

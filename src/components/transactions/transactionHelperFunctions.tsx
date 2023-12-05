@@ -74,7 +74,9 @@ export const getTransactionTypeAndAmount = (type: string, amount: string) => {
         </Typography>
       );
     default:
-      return "";
+      return (
+        <Typography> {` ${moneyFormatter.format(Number(amount))}`}</Typography>
+      );
   }
 };
 

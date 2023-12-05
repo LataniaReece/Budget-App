@@ -102,7 +102,7 @@ const FinancesBarChart = () => {
 
   return (
     <Box sx={{ height: 300, mt: 4 }}>
-      <Bar data={data} options={options} />
+      <Bar data={data} options={options} data-testid="financesBarChart" />
     </Box>
   );
 };

@@ -79,7 +79,8 @@ const styles: StylesObject = {
   },
 };
 
-const DesktopTransactionsTable = () => {
+const DesktopTransactionTable = () => {
+  const [pageSize, setPageSize] = useState<number>(5);
   const [openAddTransaction, setOpenAddTransaction] = useState(false);
   const [openRemoveTransaction, setOpenRemoveTransaction] = useState(false);
   const [transactionToRemove, setTransactionToRemove] =
@@ -143,7 +144,7 @@ const DesktopTransactionsTable = () => {
 
   return (
     <>
-      <AppPaper>
+      <AppPaper data-testid="desktopTransactionsTable">
         <Box sx={styles.heading}>
           <AppPaperHeader>Transactions</AppPaperHeader>
           <Button
@@ -159,18 +160,14 @@ const DesktopTransactionsTable = () => {
           rows={transactions}
           columns={columns}
           autoHeight
-          slots={{
-            noRowsOverlay: CustomNoRowsOverlay,
+          components={{
+            NoRowsOverlay: CustomNoRowsOverlay, // Use `components` instead of `slots`
           }}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                pageSize: 5,
-              },
-            },
-          }}
+          pagination
+          pageSize={pageSize}
+          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           sx={styles.dataGrid}
-          pageSizeOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10, 25]}
         />
       </AppPaper>
       <AddTransaction
@@ -186,4 +183,4 @@ const DesktopTransactionsTable = () => {
   );
 };
 
-export default DesktopTransactionsTable;
+export default DesktopTransactionTable;

@@ -5,6 +5,7 @@ import { AppMeasurements } from "../theme";
 interface AppPaperProps {
   children?: React.ReactNode;
   sx?: SxProps<Theme>;
+  ["data-testid"]?: string;
 }
 
 export const AppPaper: FC<AppPaperProps> = (props: AppPaperProps) => {
