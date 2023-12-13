@@ -1,27 +1,11 @@
-# React + TypeScript + Vite
+# Budget App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Full Site](https://latania-budget-app.netlify.app/). A responsive budget app using react-chartjs-2 and @mui/x-data-grid for data presentation. 
 
-Currently, two official plugins are available:
+This app was built with React + TypeScript using Context API for state management. Select components are also backed by robust unit tests.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# What I Learned
 
-## Expanding the ESLint configuration
+For this project, my objective was to create an application that emphasizes charts and effective data presentation. To achieve this, I opted to use react-chartjs-2 for chart rendering, considering its popularity within the React community and my interest in exploring its documentation and features. Additionally, I chose to use @mui/x-data-grid, as I was already familiar with Material-UI but wanted to get into the specifics of mui’s data-grid. 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Following my [previous project](https://github.com/LataniaReece/MediaDB), I wanted to continue on in developing my understanding in  Context API and Typescript, recognizing these as important skills for my developer career. I also included unit tests in this project to continue my learning in writing meaningful and robust tests in my apps for better stability.
